@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Leonel Toro | Proyecto Salud Mental</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>CESAC Nº24</h1>
+						<p>Pipeline automática y escalable de análisis de datos con Python.<br>
+						Procesamiento de texto, cálculo de indicadores, visualizaciones y envío automático de reporte.</p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="../index.html" class="logo">Leonel Toro</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="#resumen">Resumen</a></li>
+							<li><a href="#desarrollo">Desarrollo</a></li>
+							<li><a href="#etapas">Etapas</a></li>
+							<li><a href="#footer">Contacto</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a class="icon brands alt fa-python" title="Python"><span class="label">Python</span></a></li>
+							<li><a class="icon solid alt fa-file-excel" title="Excel"><span class="label">Excel</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Descripción -->
+							<article class="post featured" style="margin-bottom: 0em;">
+								<header id="resumen" class="major">
+									<h3>Resumen del Proyecto</h3>
+									<p>Este proyecto desarrolla un <strong>pipeline automático</strong> para el <strong>análisis de datos</strong> en el área de <strong>salud mental</strong>. Se realiza el <strong>procesamiento de texto</strong> para extraer <strong>información relevante</strong>, se generan <strong>métricas clave</strong> y se crean <strong>visualizaciones dinámicas</strong> que permiten monitorear tendencias y patrones. Además, el sistema incluye la generación de un <strong>informe en PDF</strong> y el <strong>envío automático de reportes</strong> por mail para facilitar la toma de decisiones basada en datos actualizados.</p>
+								</header>
+                            </article>
+
+						<!-- Desarrollo -->
+							<section class="wrapper">
+  								<div class="align-center">
+    								<h3>Desarrollo del proyecto</h3>
+    								<p>
+      								<span class="image left"><img src="images/salud1.png" alt="Procesamiento avanzado de texto" /></span>
+      								El proyecto parte del análisis de datos recolectados mediante un <strong>formulario online</strong> que debe completar el <strong>profesional que solicita la derivación</strong> a salud mental. En muchos casos, estos formularios se llenan <strong>rápidamente y bajo alta carga de trabajo</strong>, lo que genera respuestas desordenadas, con errores ortográficos o lenguaje informal. Una de las columnas clave incluía texto libre que describía el <strong>motivo del pedido</strong>, con grandes variaciones en redacción, longitud y vocabulario. Para estructurar esta variable, desarrollé un módulo que <strong>normaliza el texto</strong> y lo compara contra un <strong>diccionario de categorías</strong> predefinidas, aplicando técnicas de <strong>fuzzy matching</strong> con la librería <strong>RapidFuzz</strong>. Esta etapa permitió <strong>etiquetar automáticamente</strong> cada registro con uno o más motivos estandarizados, dando estructura a lo que originalmente era información desordenada. La imagen ilustra un fragmento central de este proceso, donde se combinan expresiones regulares, normalización de caracteres y comparación difusa para maximizar la cobertura sin perder precisión.
+    								</p>
+    								<p>
+      								<span class="image right"><img src="images/salud2.png" alt="Generación del gráfico principales motivos de derivaciones" /></span>
+      								Una vez estructuradas las categorías a partir del texto libre, se avanzó con un <strong>análisis exploratorio amplio</strong> de los datos. Se generaron diversas visualizaciones que permitieron entender mejor el volumen, las características y los contextos de las derivaciones. Entre ellas, se destacan gráficos de <strong>cantidad de pedidos por rango etario</strong> —obtenido a partir de la limpieza y binning de la variable edad—, <strong>evolución mensual y semanal</strong> de las derivaciones, y <strong>porcentaje de pacientes con tratamiento previo</strong> en salud mental. Estas visualizaciones aportan múltiples perspectivas que enriquecen el diagnóstico institucional. Dentro de este proceso, también se desarrolló el código que genera el <strong>gráfico de motivos más frecuentes</strong>, a partir del conteo y expansión de las etiquetas categorizadas en el paso anterior. En este bloque se muestra parte del código utilizado para calcular, ordenar y preparar estos indicadores, que fueron claves para <strong>transformar texto libre en información visualmente útil</strong>.
+    								</p>
+    								<p>
+      								<span class="image left"><img src="images/salud3.png" alt="Gráfico principales motivos de derivaciones" /></span>
+      								Además de las visualizaciones, el proyecto incluyó el <strong>cálculo de métricas operativas</strong> relevantes para evaluar el funcionamiento del sistema de derivaciones. Entre ellas, se calcularon el <strong>promedio de consultas semanales</strong>, la <strong>cantidad total de registros</strong> procesados, el <strong>porcentaje de formularios que no lograron ser categorizados</strong> mediante palabras clave, y la <strong>cantidad promedio de categorías detectadas por caso</strong>. Estas métricas permiten monitorear la evolución de la demanda, detectar posibles problemas en el diseño del formulario o en el llenado, y ajustar estrategias de atención. La visualización mostrada en este bloque, centrada en los <strong>motivos más frecuentes de derivación</strong>, sintetiza parte de ese trabajo y sirve como ejemplo del tipo de resultados que el análisis permite obtener. Es la instancia donde <strong>los datos procesados se transforman en evidencia clara</strong> para orientar decisiones clínicas e institucionales.
+    								</p>
+    								<p>
+      								<span class="image right"><img src="images/salud4.png" alt="Envío automático de correo con análisis" /></span>
+      								Como cierre del pipeline, se desarrolló un módulo que <strong>automatiza la generación y el envío del informe</strong>. Todos los productos del análisis —gráficos, tablas y un informe en PDF generado automáticamente— se recopilan y se envían por correo electrónico al equipo correspondiente. Se utilizaron las bibliotecas <strong>smtplib</strong> y <strong>email</strong> para componer el mensaje, detectar los archivos a adjuntar y despachar el correo desde una cuenta predefinida. Esta etapa le da al proyecto un <strong>carácter operativo y escalable</strong>: no solo procesa e interpreta datos, sino que también <strong>entrega resultados de forma autónoma</strong>, sin necesidad de intervención manual. La imagen muestra un fragmento de este flujo de automatización, que es especialmente útil en entornos institucionales con alta carga de trabajo, donde el tiempo disponible para sistematizar y compartir resultados es escaso.
+    								</p>									
+	  							</div>
+							</section>							
+                            
+                         <!-- Título Etapas -->
+                            <header id="etapas" class="align-center">
+                                 <h2>Etapas del Proyecto</h2>
+                            </header>
+
+						<!-- Etapas del Proyecto -->
+                            <section class="posts" style="margin-top: 0em;">
+	                            <article>
+		                            <header>
+			                            <h3>1. Interpretación del formulario y validación</h3>
+		                            </header>
+                                    <p>
+			                            El análisis se inicia a partir de un <strong>formulario online</strong> utilizado por profesionales de la salud para derivar pacientes al equipo de salud mental. Estas derivaciones suelen realizarse en contextos de <strong>alta carga laboral</strong>, lo que genera respuestas rápidas, con errores de tipeo, uso informal del lenguaje y datos incompletos o desorganizados.
+		                            </p>
+									<p>
+										En esta etapa se realiza una <strong>lectura crítica de la estructura del formulario</strong> y se identifican las variables clave para el análisis. Se carga el archivo original, se validan los tipos de datos y se lleva adelante una <strong>primera limpieza</strong> para estandarizar fechas, edades y campos abiertos, dejando el dataset listo para su procesamiento automatizado.
+									</p>
+	                            </article>
+	                            <article>
+		                            <header>
+			                            <h3>2. Procesamiento y categorización automática</h3>
+		                            </header>
+		                            <p>
+			                            Con los datos ya estructurados, se desarrolló un sistema de <strong>procesamiento de texto automatizado</strong> para clasificar los motivos de derivación escritos en lenguaje natural. Se definió un <strong>diccionario de categorías clave</strong> con más de veinte etiquetas relevantes (como ansiedad, violencia, consumo, etc.) y sus variantes semánticas.
+	                            	</p>
+									<p>
+										Mediante funciones personalizadas y el uso de la biblioteca <strong>RapidFuzz</strong>, se implementó una lógica de <strong>fuzzy matching</strong> que permite identificar patrones, sin depender de coincidencias exactas. Este enfoque permitió convertir expresiones libres en variables categóricas útiles para el análisis, aun con errores de tipeo, ambigüedad o redacción informal.
+									</p>
+	                            </article>
+	                            <article>
+	                            	<header>
+		                            	<h3>3. Análisis exploratorio, desarrollo de métricas y visualizaciones</h3>
+		                            </header>
+		                            <p>
+			                            Con las categorías ya procesadas, se llevó a cabo un <strong>análisis exploratorio de datos (EDA)</strong> para conocer mejor las características de la demanda. Se desarrollaron múltiples visualizaciones: <strong>frecuencia por rango etario</strong> (agrupado en bins), <strong>evolución mensual y semanal de las consultas</strong>, y proporción de personas que ya habían tenido tratamientos previos en salud mental, entre otras.
+		                            </p>
+									<p>
+										A su vez, se calcularon <strong>métricas operativas</strong> relevantes, como el <strong>promedio de consultas semanales</strong>, la <strong>cantidad de registros que no pudieron ser categorizados</strong> y la <strong>cantidad promedio de categorías por registro</strong>. Estas estadísticas complementan las visualizaciones al aportar un enfoque cuantitativo útil para la <strong>toma de decisiones institucional</strong>.
+									</p>
+	                            </article>
+                            	<article>
+		                            <header>
+			                            <h3>4. Generación y envío automático de reportes</h3>
+		                            </header>
+		                            <p>
+			                            Como cierre del flujo de trabajo, se implementó una <strong>automatización completa del reporte</strong>, que incluye la generación de archivos en distintos formatos: imágenes, planillas Excel y un <strong>informe PDF autogenerado</strong> con los principales hallazgos del análisis.
+		                            </p>
+									<p>
+										Todos estos productos son recopilados y enviados automáticamente por <strong>correo electrónico</strong> al equipo correspondiente, utilizando las bibliotecas <strong>smtplib</strong> y <strong>email</strong>. Esta integración le otorga al proyecto un <strong>carácter operativo y escalable</strong>, permitiendo entregar resultados accionables sin intervención manual, lo que representa un valor real en entornos de alta demanda.
+									</p>
+	                            </article>
+                            </section>
+ 
+                        <!-- Botón final-->
+							<div style="margin-top: 1rem; text-align: center;">
+    							<a href="../index.html" class="button small fit">Volver al portfolio</a>
+  							</div>                               
+					</div>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="https://formsubmit.co/leonel.toro93@gmail.com">
+								<input type="hidden" name="_captcha" value="false">
+  								<input type="hidden" name="_subject" value="Nuevo mensaje desde tu portfolio">
+  								<input type="hidden" name="_autoresponse" value="Hola, recibí tu mensaje y te voy a responder a la brevedad. ¡Gracias por contactarte!">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Nombre</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Mensaje</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Enviar Mensaje" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section>
+        						<h3>
+								Estoy disponible para nuevos desafíos, ya sea en proyectos freelance o en equipos de trabajo. Si tenés una propuesta o querés saber más sobre mi experiencia, escribime.</h3>
+    						</section>
+							<section>
+								<h3>Teléfono</h3>
+								<p><a href="tel:+5491161491350">+54 9 116 149 1350</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:leonel.toro93@gmail.com">leonel.toro93@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Perfiles</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/leoneltoro/" target="_blank" rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/LeonelToro" target="_blank" rel="noopener noreferrer" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; 2025 Leonel Toro</li><li>Basado en el diseño de <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

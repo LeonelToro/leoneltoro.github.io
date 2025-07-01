@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Leonel Toro | Proyecto Lodiser S.A.</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>Lodiser S.A.</h1>
+						<p>Proyecto integral de análisis comercial<br />
+						desarrollado con Python y Power BI.</p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="../index.html" class="logo">Leonel Toro</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="#resumen">Resumen</a></li>
+							<li><a href="#desarrollo">Desarrollo</a></li>
+							<li><a href="#etapas">Etapas</a></li>
+							<li><a href="#video">Video</a></li>
+							<li><a href="#footer">Contacto</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a class="icon brands alt fa-python" title="Python"><span class="label">Python</span></a></li>
+							<li><a class="icon solid alt fa-database" title="SQL"><span class="label">SQL</span></a></li>
+							<li><a class="icon solid alt fa-chart-bar" title="Power BI"><span class="label">Power BI</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Descripción -->
+							<article class="post featured" style="margin-bottom: 0em;">
+								<header id="resumen" class="major">
+									<h3>Resumen del Proyecto</h3>
+									<p>Este proyecto tiene como objetivo brindar una <strong>herramienta visual e interactiva</strong> para el <strong>análisis comercial</strong> de una empresa del rubro alimenticio. Realicé <strong>web scraping</strong> para recopilar datos de la web y simulé ventas y clientes utilizando <strong>Python</strong>. Con toda esa información, generé una <strong>base de datos</strong> en <strong>SQLite</strong> utilizando <strong>SQLAlchemy</strong>. El tablero en <strong>Power BI</strong> permite <strong>explorar indicadores clave</strong>, identificar productos destacados, <strong>analizar el desempeño</strong> por ciudad y <strong>segmentar la información</strong> por sucursal, categoría o período.</p>
+								</header>
+								<a class="image main"><img src="images/lodiser_reporte.png" alt="Reporte comercial" /></a>
+								<h3 id="desarrollo">Desarrollo del Proyecto</h3>
+								<p>El proyecto se construyó a partir del <strong>web scraping del sitio oficial de Lodiser S.A.</strong> con Python (requests y BeautifulSoup), extrayendo datos de sucursales, recetas y productos. Luego, <strong>simulé datos de clientes y ventas</strong> usando pandas y numpy, aplicando criterios realistas para reflejar patrones demográficos, geográficos y comerciales. Estos datos fueron estructurados en una <strong>base de datos SQLite con SQLAlchemy</strong>.</p>
+								<p>El modelo de datos sigue un <strong>esquema de copo de nieve</strong>, con ventas como tabla de hechos y dimensiones asociadas que permiten un análisis granular. Se incorporó una <strong>tabla calendario en DAX</strong> para habilitar análisis por períodos y comparaciones temporales.</p>
+								<p>Desarrollé <strong>medidas en DAX</strong> para calcular KPIs, métricas filtrables y funciones de texto que enriquecen la interacción. Las visualizaciones se diseñaron en Power BI respetando la identidad visual de la empresa, priorizando <strong>claridad, jerarquía, impacto visual y experiencia de usuario</strong>.</p>
+								<p>El dashboard se dividió en dos páginas, por un lado el <strong>Reporte Ejecutivo</strong> con visión general del negocio, <strong>KPIs agregados, evolución temporal</strong> y filtros clave. Y por el otro lado, un <strong>análisis con foco detallado en cada producto</strong>, con métricas individuales, imagen y marca.</p>
+								<a class="image main"><img src="images/lodiser_productos.png" alt="Análisis por productos" /></a>
+							</article>
+                            
+                         <!-- Título Etapas -->
+                            <header id="etapas" class="align-center">
+                                 <h2>Etapas del Proyecto</h2>
+                            </header>
+
+						<!-- Etapas del Proyecto -->
+                            <section class="posts" style="margin-top: 0em;">
+	                            <article>
+		                            <header>
+			                            <h3>1. Consolidación del dataset</h3>
+		                            </header>
+                                    <p>Se realizó web scraping del sitio oficial de Lodiser S.A. utilizando Python, con las librerías <strong>requests</strong> y <strong>BeautifulSoup</strong>. Se extrajeron datos estructurados de productos, recetas y sucursales, incluyendo atributos como nombre, imagen, descripción, marca y categoría. Esta información constituyó la base inicial del proyecto.</p>
+									<p>Sobre esta estructura, se generaron datos simulados para representar <strong>clientes y ventas</strong>, con el objetivo de crear un entorno comercial verosímil. La simulación se realizó con <strong>pandas</strong> y <strong>numpy</strong>, aplicando criterios demográficos, geográficos y económicos.</p>
+	                            </article>
+	                            <article>
+		                            <header>
+			                            <h3>2. Limpieza y moelado de base de datos</h3>
+		                            </header>
+		                            <p>Una vez consolidado el dataset, se organizaron los datos en <strong>tablas relacionales</strong> asegurando la <strong>coherencia y consistencia entre las entidades</strong>. Se cuidaron aspectos como las claves primarias y foráneas, integridad referencial y la correcta vinculación de cada elemento dentro del modelo de negocio.</p>
+									<p>La base de datos fue implementada en <strong>SQLite</strong> utilizando <strong>SQLAlchemy</strong> como ORM. Se adoptó un <strong>esquema de copo de nieve</strong>, en el que la tabla de ventas se conecta con clientes, sucursales y detalle_ventas que, a su vez, se relaciona con productos. Esta estructura permite un análisis detallado sin perder eficiencia en las consultas.</p>
+	                            </article>
+	                            <article>
+	                            	<header>
+		                            	<h3>3. Exploración de datos y modelado semántico</h3>
+		                            </header>
+									<p>En Power BI se construyó una <strong>tabla calendario en DAX</strong> para establecer relaciones temporales y habilitar análisis por período, acumulados y comparaciones mensuales. Esta estructura permitió organizar el análisis a lo largo del tiempo de forma consistente y eficiente.</p>
+									<p>Se desarrollaron <strong>medidas en DAX</strong> para calcular indicadores clave y diseñar visualizaciones interactivas sensibles a los filtros. Se utilizaron funciones como <strong>SUM</strong> para totales, <strong>CALCULATE</strong> y <strong>FILTER</strong> para cálculos condicionados, <strong>SELECTEDVALUE</strong> para segmentaciones únicas, y funciones de texto como <strong>UPPER</strong>, <strong>LEFT</strong> y <strong>FORMAT</strong>. Estas medidas brindan información accionable a distintos niveles del dashboard.</p>
+	                            </article>
+                            	<article>
+		                            <header>
+			                            <h3>4. Diseño del dashboard y presentación de resultados</h3>
+		                            </header>
+		                            <p>El dashboard fue diseñado en Power BI priorizando la <strong>claridad visual, la jerarquía informativa y la experiencia del usuario</strong>. Se aplicó una paleta de colores alineada con la identidad gráfica de Lodiser, cuidando la coherencia estética, el uso de íconos, la disposición de elementos clave y la incorporación de segmentaciones interactivas que permiten filtrar y explorar los datos de forma dinámica.</p>
+									<p>El reporte se organizó en dos páginas: una con una <strong>visión ejecutiva</strong> del negocio, mostrando KPIs, evolución temporal y filtros clave; y otra con un <strong>análisis detallado por producto</strong>, incluyendo métricas individuales, imagen y marca. Se buscó que cada visualización aporte contexto y facilite la toma de decisiones desde múltiples niveles.</p>
+	                            </article>
+                            </section>
+ 
+                        <!-- Imagen final-->
+                            <span id="video" class="image main">
+                                <h4 href="https://www.loom.com/share/tu-enlace-de-video" target="_blank" rel="noopener noreferrer" style="margin-top: 1rem; text-align: center; color: #2e3141; cursor: pointer;">Ver grabación de video</h4>
+								<a href="https://www.loom.com/share/tu-enlace-de-video" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+		                            <img src="images/pic02.jpg" alt="Grabación del dashboard" />
+	                            </a>
+								<div style="margin-top: 1rem; text-align: center;">
+    								<a href="../index.html" class="button small fit">Volver al portfolio</a>
+  								</div>                
+                            </span>                              
+					</div>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="https://formsubmit.co/leonel.toro93@gmail.com">
+								<input type="hidden" name="_captcha" value="false">
+  								<input type="hidden" name="_subject" value="Nuevo mensaje desde tu portfolio">
+  								<input type="hidden" name="_autoresponse" value="Hola, recibí tu mensaje y te voy a responder a la brevedad. ¡Gracias por contactarte!">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Nombre</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Mensaje</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Enviar Mensaje" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section>
+        						<h3>
+								Estoy disponible para nuevos desafíos, ya sea en proyectos freelance o en equipos de trabajo. Si tenés una propuesta o querés saber más sobre mi experiencia, escribime.</h3>
+    						</section>
+							<section>
+								<h3>Teléfono</h3>
+								<p><a href="tel:+5491161491350">+54 9 116 149 1350</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:leonel.toro93@gmail.com">leonel.toro93@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Perfiles</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/leoneltoro/" target="_blank" rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/LeonelToro" target="_blank" rel="noopener noreferrer" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; 2025 Leonel Toro</li><li>Basado en el diseño de <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
