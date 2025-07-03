@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Leonel Toro | ML predicción USD</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>¿Es posible<br />
+						predecir el dólar?</h1>
+						<p>Modelado del tipo de cambio oficial argentino usando Machine Learning explicable.<br />
+						Análisis de relaciones macroeconómicas con regresión Lasso y datos oficiales del BCRA.</p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="../index.html" class="logo">Leonel Toro</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="#resumen">Resumen</a></li>
+							<li><a href="#desarrollo">Desarrollo</a></li>
+							<li><a href="#etapas">Etapas</a></li>
+							<li><a href="#footer">Contacto</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a class="icon brands alt fa-python" title="Python"><span class="label">Python</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Descripción -->
+							<article class="wrapper" style="margin-bottom: 0em;">
+								<header id="resumen" class="major">
+									<h3>Resumen del Proyecto</h3>
+									<p>En este proyecto desarrollé un flujo completo de análisis para modelar el tipo de cambio oficial argentino con <strong>Machine Learning</strong>. Comienza con la automatización en la descarga de datos desde la <strong>API oficial del BCRA</strong>, seguida por la limpieza y consolidación de variables macroeconómicas mensuales. La selección de predictores combinó criterios <strong>estadísticos</strong>, <strong>fundamentos económicos</strong> y correlaciones empíricas. Finalmente, implementé un <strong>modelo de regresión Lasso</strong> con la librería <strong>scikit-learn</strong>, priorizando interpretabilidad y robustez. El objetivo no es anticipar con precisión su valor futuro, sino construir un modelo transparente y robusto que permita <strong>interpretar relaciones estructurales</strong> de largo plazo.</p>
+								</header>
+                            </article>
+
+						<!-- Desarrollo -->
+							<section class="wrapper">
+  								<div class="align-center">
+    								<h3>Desarrollo del proyecto</h3>
+    								<p>
+      								<span class="image left"><img src="images/usd1.png" alt="Descarga de datos crudos desde API del BCRA" /></span>
+      								El proyecto comienza con la <strong>descarga automática de datos económicos</strong> directamente desde la <a href="https://estadisticasbcra.com/api/documentacion" target="_blank">API oficial del Banco Central de la República Argentina (BCRA)</a>. Para ello, desarrollé una <strong>función personalizada en Python</strong> que utiliza la biblioteca <strong>requests</strong> para hacer solicitudes HTTP y descargar datos desde múltiples endpoints previamente definidos. Cada respuesta se transforma en un DataFrame y se guarda como archivo ".csv", asegurando una estructura homogénea para su posterior análisis. Esta función se integra a un flujo principal que recorre los distintos indicadores y descarga los archivos de forma <strong>automatizada</strong>. El diseño modular del código permite <strong>replicar fácilmente este proceso</strong> en otros proyectos con APIs similares, aportando escalabilidad y mantenibilidad. La imagen muestra un fragmento clave del script, donde se <strong>valida el estado de la respuesta</strong>, se crea el directorio de salida y se registran los resultados. Este paso inicial garantiza un punto de partida <strong>robusto, actualizado y reproducible</strong> para todo el pipeline analítico posterior.
+    								</p>
+    								<p>
+									<span class="image right"><img src="images/usd2.png" alt="Gráfico de correlaciones de variables" /></span>
+									Con los <strong>datos crudos</strong> descargados desde los distintos endpoints, implementé un módulo de <strong>limpieza y preparación</strong> que consolida toda la información en un único <strong>DataFrame mensual</strong>. El script en Python unifica las series, convierte las fechas al tipo <strong>datetime</strong>, calcula el <strong>promedio mensual de valores diarios</strong> cuando aplica, trata valores faltantes y genera variables derivadas. Esta armonización garantiza que cada variable esté <strong>alineada temporalmente</strong> y que la base resultante sea consistente y adecuada para modelado.
+									Luego realicé un <strong>análisis exploratorio de datos (EDA)</strong> con visualización de tendencias, distribuciones y, especialmente, la <strong>matriz de correlaciones</strong> que se muestra en la imagen y es clave para visualizar la intensidad y dirección de los vinculos entre variables. Este paso es fundamental para comprender relaciones con el <strong>tipo de cambio oficial</strong> y seleccionar <strong>variables predictoras</strong>. Utilicé librerías como <strong>seaborn</strong> y <strong>matplotlib</strong> para detectar patrones, estacionalidades y posibles <strong>outliers</strong>. Todo el flujo es <strong>reproducible</strong> y está documentado en notebooks, lo que asegura <strong>transparencia</strong> y facilita ajustes futuros.
+									</p>
+    								<p>
+      								<span class="image left"><img src="images/usd3.png" alt="Generación de modelo de Lasso y cálculo de métricas y visualización" /></span>
+      								Antes de construir el modelo, llevé a cabo una <strong>selección rigurosa de variables predictoras</strong> basada en el dataset consolidado. Allí, combino criterios <strong>estadísticos</strong> —como <strong>correlaciones</strong>, <strong>colinealidad</strong> y <strong>varianza explicada</strong>— con fundamentos <strong>económicos sustantivos</strong>, es decir, una interpretación teórica de los indicadores relevantes. Fue un proceso <strong>iterativo</strong>, en el que probé diversas combinaciones para optimizar <strong>rendimiento</strong> e <strong>interpretabilidad</strong>. Las variables finales fueron: <strong>inflación mensual oficial</strong>, <strong>base monetaria</strong>, <strong>tasa de interés de depósitos a 30 días</strong> y el <strong>CER</strong>. Cada una representa un aspecto clave del entorno macroeconómico: la inflación refleja la pérdida de poder adquisitivo, la base monetaria se asocia al nivel de emisión, las tasas de interés vinculan el precio del dinero con la política monetaria, y el CER introduce un componente indexado útil en períodos de alta nominalidad. La elección del modelo <strong>Lasso</strong> también fue comparativa: evalué <strong>regresión lineal</strong>, <strong>Ridge</strong>, <strong>ElasticNet</strong> y <strong>Random Forest</strong>. Lasso destacó por su equilibrio entre <strong>simplicidad</strong> y <strong>desempeño</strong>, eliminando automáticamente variables poco relevantes. Esto reduce el <strong>riesgo de sobreajuste</strong> y favorece modelos más <strong>interpretables</strong> y <strong>parsimoniosos</strong>, donde cada variable aporta un <strong>peso analítico claro</strong>.
+    								</p>
+    								<p>
+      								<span class="image right"><img src="images/usd4.png" alt="Gráfico de dólar oficial real vs predicho" /></span>
+      								Luego de entrenar el modelo y validar su rendimiento, comparé los resultados obtenidos con distintas técnicas de regresión. La regresión <strong>Lasso</strong> se consolidó como la opción final por su capacidad para <strong>reducir la complejidad</strong> sin sacrificar desempeño. A nivel cuantitativo, mostró una <strong>mejor performance</strong> que la regresión lineal múltiple en todos los indicadores evaluados: <strong>RMSE</strong> (86.124 vs 89.334), <strong>MAE</strong> (69.272 vs 71.957) y <strong>R² en test</strong> (0.794 vs 0.778). Además, el <strong>R² promedio en validación cruzada</strong> fue de 0.938 para ambos modelos, confirmando su <strong>estabilidad general</strong>. Estos resultados indican que el modelo es capaz de capturar buena parte de la dinámica del <strong>dólar oficial argentino</strong> a partir de un conjunto reducido de <strong>variables macroeconómicas significativas</strong>. El gráfico comparativo entre las predicciones y los valores reales permite visualizar de forma clara los <strong>aciertos y desvíos</strong>, mostrando un <strong>muy buen ajuste en contextos estables</strong> y mayor dispersión en períodos de volatilidad. Esto confirma el valor del enfoque como <strong>herramienta interpretativa</strong>: más que anticipar con precisión el futuro, busca representar <strong>relaciones estructurales de largo plazo</strong> que ayuden a comprender el fenómeno económico.
+    								</p>									
+	  							</div>
+							</section>							
+                            
+                         <!-- Título Etapas -->
+                            <header id="etapas" class="align-center">
+                                 <h2>Etapas del Proyecto</h2>
+                            </header>
+
+						<!-- Etapas del Proyecto -->
+                            <section class="posts" style="margin-top: 0em;">
+	                            <article>
+		                            <header>
+			                            <h3>1. Recolección de datos automatizada vía API</h3>
+		                            </header>
+                                    <p>
+			                            El proyecto comienza con la <strong>extracción automatizada de datos macroeconómicos</strong> desde la <strong>API oficial del Banco Central de la República Argentina (BCRA)</strong>. Para ello, se define un conjunto de <strong>endpoints</strong> relevantes y se desarrolla una función personalizada utilizando la librería <strong>requests</strong>, que permite descargar en lote múltiples series históricas con una sola ejecución del script. Los datos se guardan como archivos <strong>CSV</strong> organizados por temática, lo que facilita su <strong>trazabilidad</strong>, <strong>versionado</strong> y uso posterior. Este proceso puede repetirse automáticamente ante nuevas actualizaciones, lo que garantiza <strong>eficiencia, consistencia y actualización periódica</strong> del dataset con mínima intervención manual.
+		                            </p>
+	                            </article>
+	                            <article>
+		                            <header>
+			                            <h3>2. Limpieza y consolidación del dataset</h3>
+		                            </header>
+		                            <p>
+			                            Con los <strong>datos crudos</strong> descargados desde los distintos endpoints del <strong>Banco Central de la República Argentina (BCRA)</strong>, se implementa un script de <strong>limpieza y transformación</strong> que unifica todas las series en un único <strong>DataFrame mensual</strong>. Se realizan tareas clave como la conversión a tipo <strong>datetime</strong>, el <strong>promedio mensual</strong> de valores diarios, el tratamiento de <strong>nulos</strong> y la <strong>alineación temporal</strong> entre variables. Además, mediante la función <strong>reduce()</strong> de <strong>functools</strong>, se efectúa un <strong>merge iterativo</strong> que permite combinar progresivamente múltiples DataFrames económicos en una única tabla consolidada. El resultado es una base <strong>estructurada, homogénea y lista para análisis</strong>, lo que estandariza el pipeline y lo deja preparado para futuras actualizaciones.
+	                            	</p>
+	                            </article>
+	                            <article>
+	                            	<header>
+		                            	<h3>3. Análisis exploratorio y selección de variables</h3>
+		                            </header>
+		                            <p>
+			                            Con los datos ya consolidados, se lleva adelante un <strong>análisis exploratorio de datos (EDA)</strong> utilizando <strong>pandas</strong>, <strong>matplotlib</strong> y <strong>seaborn</strong>. Se examinan <strong>tendencias</strong>, <strong>distribuciones</strong>, <strong>outliers</strong> y la <strong>matriz de correlaciones</strong> entre indicadores macroeconómicos. Este paso permite identificar relaciones significativas con la <strong>variable objetivo</strong> (el tipo de cambio oficial) y aporta evidencia empírica para fundamentar decisiones posteriores en el diseño del modelo.
+										<br>
+										A partir de este diagnóstico, se inicia un proceso <strong>iterativo</strong> de selección de variables predictoras que combina <strong>criterios estadísticos</strong> (correlación, colinealidad), <strong>fundamentos económicos</strong> y <strong>sentido interpretativo</strong>. Se eligen variables clave como la <strong>inflación mensual</strong>, la <strong>base monetaria</strong>, el <strong>CER</strong> y las <strong>tasas de interés</strong>, priorizando aquellas que aportan <strong>información no redundante</strong> y permiten explicar el fenómeno desde una perspectiva estructural.
+									</p>
+	                            </article>
+                            	<article>
+		                            <header>
+			                            <h3>4. Entrenamiento del modelo y evaluación de performance</h3>
+		                            </header>
+		                            <p>
+			                            Para el modelado, se evaluaron distintos enfoques de <strong>regresión supervisada</strong>, considerando el <strong>desempeño predictivo</strong> y la <strong>interpretabilidad</strong> de los resultados. Tras múltiples iteraciones, se eligió <strong>Lasso</strong> por su capacidad de <strong>regularización</strong> y <strong>reducción automática de variables</strong>, descartando las de bajo aporte explicativo. Al tratarse de <strong>datos temporales</strong>, la partición entre entrenamiento y testeo se hizo de forma <strong>cronológica</strong>, usando los primeros años para entrenar y los más recientes para validar.
+										<br>
+										El modelo final muestra un rendimiento sólido, con <strong>RMSE</strong> de 86.124, <strong>MAE</strong> de 69.272 y un <strong>R²</strong> de 0.794 en el conjunto de test. Además, el <strong>R² promedio en validación cruzada</strong> alcanza 0.938, lo que sugiere <strong>estabilidad y generalización</strong> del modelo. Este desempeño confirma que, si bien el objetivo no es prever con exactitud el valor futuro del dólar, el enfoque permite <strong>interpretar relaciones macroeconómicas estructurales</strong> con herramientas de <strong>machine learning explicable</strong>.
+									</p>
+	                            </article>
+                            </section>
+ 
+                        <!-- Botón final-->
+							<div style="margin-top: 1rem; text-align: center;">
+    							<a href="../index.html" class="button small fit">Volver al portfolio</a>
+  							</div>                              
+					</div>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="https://formsubmit.co/leonel.toro93@gmail.com">
+								<input type="hidden" name="_captcha" value="false">
+  								<input type="hidden" name="_subject" value="Nuevo mensaje desde tu portfolio">
+  								<input type="hidden" name="_autoresponse" value="Hola, recibí tu mensaje y te voy a responder a la brevedad. ¡Gracias por contactarte!">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Nombre</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Mensaje</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Enviar Mensaje" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section>
+        						<h3>
+								Estoy disponible para nuevos desafíos, ya sea en proyectos freelance o en equipos de trabajo. Si tenés una propuesta o querés saber más sobre mi experiencia, escribime.</h3>
+    						</section>
+							<section>
+								<h3>Teléfono</h3>
+								<p><a href="tel:+5491161491350">+54 9 116 149 1350</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:leonel.toro93@gmail.com">leonel.toro93@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Perfiles</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/leoneltoro/" target="_blank" rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/LeonelToro" target="_blank" rel="noopener noreferrer" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; 2025 Leonel Toro</li><li>Basado en el diseño de <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
